@@ -39,7 +39,11 @@ df_MED_long <- df_MED %>%
          metric = "MED")
 
 df_all_long <- df_AVG_long %>% 
-  rbind(df_GEOM_long,df_MED_long)        
+  dplyr::filter(metric == "GEOM") %>% 
+  rbind(df_GEOM_long,df_MED_long) 
+  # group_by(lat,lon) %>% 
+  # mutate(ID = 1:n())
+
 ```
 
 
